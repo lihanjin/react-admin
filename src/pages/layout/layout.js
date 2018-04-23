@@ -5,26 +5,13 @@ import { Route, Link } from 'react-router-dom'
 import User from '../../pages/user/user'
 import AddUser from '../../pages/user/userAdd'
 const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+const { Content, Sider } = Layout;
 class Layouts extends React.Component {
   render() {
-  console.log(this.props.location.pathname.split('/'))
-    const pathname = this.props.location.pathname.split('/')
+    // var  pathname = this.props.location.pathname || '/home'
+    // pathname = pathname.split('/')
     return (
       <Layout>
-        <Header className="header">
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="horizontal"
-            defaultSelectedKeys={['2']}
-            style={{ lineHeight: '64px' }}
-          >
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
-          </Menu>
-        </Header>
         <Layout>
           <Sider 
             width={200} 
@@ -58,13 +45,13 @@ class Layouts extends React.Component {
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              {
-                pathname.map((name) => {
+              {/* {
+                pathname.map((name, index) => {
                   return (
-                    <Breadcrumb.Item key={name}>{name}</Breadcrumb.Item>
+                    <Breadcrumb.Item key={index}>{name}</Breadcrumb.Item>
                   )
                 })
-              }
+              } */}
             </Breadcrumb>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
               <Route path="/user" exact component={User} />

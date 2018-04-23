@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import setTitle from '../../redux/actions/layout'
-import Layouts from '../../component/layout/layout.js'
+import Header from '../../component/Header/header'
+import User from '../user/index'
+import { Route } from 'react-router-dom'
 class Home extends React.Component{
   constructor(props) {
     super(props)
@@ -18,9 +20,9 @@ class Home extends React.Component{
   componentWillReceiveProps(nextProps){
     // 父组件更新子组件props时
   }
-  shouldComponentUpdate(nextProps,nextState){
-    // 是否应该更新组件，默认返回true。当返回false时，后期函数就不会调用，组件不会在次渲染。
-  }
+  // shouldComponentUpdate(nextProps,nextState){
+  //   // 是否应该更新组件，默认返回true。当返回false时，后期函数就不会调用，组件不会在次渲染。
+  // }
   componentDidUpdate() {
     // 在更新真实的DOM成功后调用
   }
@@ -30,7 +32,8 @@ class Home extends React.Component{
   render() {
     return (
       <div className="home">
-        <Layouts/>
+        <Header></Header>
+        <Route path="/user"  component={User} />
       </div>
     )
   }
