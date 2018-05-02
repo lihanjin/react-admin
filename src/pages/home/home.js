@@ -4,6 +4,12 @@ import setTitle from '../../redux/actions/layout'
 import Header from '../../component/Header/header'
 import User from '../user/index'
 import { Route } from 'react-router-dom'
+import Loadable from 'react-loadable'
+import Loading from '../../component/Spin/index'
+const One = Loadable({
+  loader: () => import('../one/index'),
+  loading: Loading,
+});
 class Home extends React.Component{
   constructor(props) {
     super(props)
@@ -34,6 +40,7 @@ class Home extends React.Component{
       <div className="home">
         <Header></Header>
         <Route path="/user"  component={User} />
+        <Route path="/one"  component={One} />
       </div>
     )
   }

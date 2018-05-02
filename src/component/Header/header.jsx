@@ -11,13 +11,14 @@ class HeaderComponent extends React.Component{
           <Menu
             theme="dark"
             mode="horizontal"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={['4']}
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="0"><Link to={`/`}>主页</Link></Menu.Item>
             <Menu.Item key="1"><Link to={`/user`}>用户</Link></Menu.Item>
             <Menu.Item key="2"><Link to={`/merchant`}>商家</Link></Menu.Item>
             <Menu.Item key="3"><Link to={`/admin`}>admin</Link></Menu.Item>
+            <Menu.Item key="4"><Link to={`/one`}>ONE</Link></Menu.Item>
           </Menu>
         </Header>
       </div>
