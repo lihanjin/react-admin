@@ -38,7 +38,7 @@ class Api extends Server {
   */
   async idlist() {
     try {
-      let result = await this.axios('get', '/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android')
+      let result = await this.axios('get', '/onelist/idlist/?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android')
       if (result.res === 0) {
         return result
       } else {
@@ -58,7 +58,7 @@ class Api extends Server {
  */
   async onelist(date) {
     try {
-      let result = await this.axios('get', `/${date}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+      let result = await this.axios('get', `/onelist/${date}/0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
       if (result.res === 0) {
         return result
       } else {

@@ -13,12 +13,11 @@ class BreadcrumbComponent extends React.Component {
   }
   render() {
     const BreadcrumbList = this.props.BreadcrumbList
-    console.log(BreadcrumbList)
     return (
       <Breadcrumb>
         {
           BreadcrumbList.map((item, index) => {
-            return <Breadcrumb.Item>{item}</Breadcrumb.Item>
+            return <Breadcrumb.Item key={index}>{item}</Breadcrumb.Item>
           })
         }
       </Breadcrumb>

@@ -55,7 +55,7 @@ class OneLayout extends React.Component {
                 })
               } */}
             </Breadcrumb>
-            <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280 }}>
+            <Content style={{ background: '#fff', padding: 24, margin: 0 }}>
               <Route path="/one/" component={home} exact />
               <Route path="/one/home" component={home} />
               <Route path="/one/movie" component={movie} />
