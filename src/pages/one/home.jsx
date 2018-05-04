@@ -3,7 +3,8 @@ import api from './api/home'
 import { connect } from 'react-redux'
 import getIdList from '../../redux/actions/one.js'
 import PropTypes from 'prop-types'
-import BreadcrumbComponent from '@/component/Breadcrumb/index'
+import { Link } from 'react-router-dom'
+// import BreadcrumbComponent from '@/component/Breadcrumb/index'
 import { Card, Icon } from 'antd'
 import './style/index.less'
 const { Meta } = Card;
@@ -52,6 +53,7 @@ class One_Home extends React.Component {
   async getOneList() {
     let date = this.state.date
     let result = await api.onelist(date)
+    console.log(result)
     this.setState({
       list: result.data,
       isUpdate: true
@@ -59,25 +61,51 @@ class One_Home extends React.Component {
   }
   render() {
     return (
+      // story 阅读 连载 问答 音乐 影视
       <div>
-        <BreadcrumbComponent BreadcrumbList={['首页']}></BreadcrumbComponent>
+        {/* <BreadcrumbComponent BreadcrumbList={['首页']}></BreadcrumbComponent> */}
         <div className="card-warp">
           {this.state.list.content_list.map((item, index) => {
+            let path
+            switch (index) {
+              case 1:
+                path = 'onestory'
+                break;
+              case 2:
+                path = 'bookDetail'
+                break;
+              case 3:
+                path = 'easy'
+                break;
+              case 4:
+                path = 'query'
+                break;
+              case 5:
+                path = 'musicDetail'
+                break;
+              case 6:
+                path = 'movieDetail'
+                break;
+              default: path = ''
+                break;
+            }
             return <div key={index} className="cardBox" >
-              <Card
-                style={{ width: 300 }}
-                cover={<img alt="example" src={item.img_url} />}
-                actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
-              >
-                <div style={{ textAlign: 'center' }} className="card-title">
-                  {item.title}
-                </div>
-                <Meta
-                  
-                  title={item.author.user_name||item.pic_info}
-                  description={item.forward}
-                />
-              </Card>
+              <Link to={`/one/${path}?type=${item.content_type}&item_id=${item.item_id}`}>
+                <Card
+                  style={{ width: 300 }}
+                  cover={<img alt="example" src={item.img_url} />}
+                  actions={[<Icon type="setting" />, <Icon type="edit" />, <Icon type="ellipsis" />]}
+                >
+                  <div style={{ textAlign: 'center' }} className="card-title">
+                    {item.title}
+                  </div>
+                  <Meta
+
+                    title={item.author.user_name || item.pic_info}
+                    description={item.forward}
+                  />
+                </Card>
+              </Link>
             </div>
           })}
         </div>

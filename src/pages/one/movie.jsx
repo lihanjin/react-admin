@@ -1,7 +1,7 @@
 import React from 'react'
 import api from './api/movie'
 import { List, Avatar, Button, Spin } from 'antd'
-import BreadcrumbComponent from '@/component/Breadcrumb/index'
+// import BreadcrumbComponent from '@/component/Breadcrumb/index'
 class One_Movie extends React.Component {
   constructor(props) {
     super(props)
@@ -52,7 +52,7 @@ class One_Movie extends React.Component {
     ) : null;
     return (
       <div>
-        <BreadcrumbComponent BreadcrumbList={['影视']}></BreadcrumbComponent>
+        {/* <BreadcrumbComponent BreadcrumbList={['影视']}></BreadcrumbComponent> */}
         <div className="movie-box">
           <List
             className="demo-loadmore-list"

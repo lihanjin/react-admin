@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import api from './api/book'
 import { List, Avatar } from 'antd'
-import BreadcrumbComponent from '@/component/Breadcrumb/index'
+// import BreadcrumbComponent from '@/component/Breadcrumb/index'
 
 
 class One_Book extends React.Component {
@@ -26,7 +26,7 @@ class One_Book extends React.Component {
     const { readingList } = this.state
     return (
       <div>
-        <BreadcrumbComponent BreadcrumbList={['阅读']}></BreadcrumbComponent>
+        {/* <BreadcrumbComponent BreadcrumbList={['阅读']}></BreadcrumbComponent> */}
         <div className="book-box">
           <List
             itemLayout="vertical"

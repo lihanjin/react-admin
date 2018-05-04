@@ -72,6 +72,26 @@ class Api extends Server {
       throw error
     }
   }
+  /**
+* 获取 onestory
+* url：http://v3.wufazhuce.com:8000/api/onelist/ + 上面获取的data + /0?cchannel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android
+*/
+  async onestory(id) {
+    try {
+      let result = await this.axios('get', `/essay/${id}?channel=wdj&source=summary&source_id=9261&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`)
+      if (result.res === 0) {
+        return result
+      } else {
+        let err = {
+          tip: '获取最新 onestory失败',
+        }
+        log.warn(err)
+        throw err
+      }
+    } catch (error) {
+      throw error
+    }
+  }
 }
 
 

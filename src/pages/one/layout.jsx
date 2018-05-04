@@ -1,9 +1,11 @@
 import React from 'react'
 import { Layout, Menu, Breadcrumb, Icon } from 'antd' 
 import { Route, Link } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import book from './book'
 import home from './home'
 import movie from './movie'
+import onestory from './onestory'
 import music from './music'
 const { SubMenu } = Menu 
 const { Content, Sider } = Layout 
@@ -15,10 +17,8 @@ class OneLayout extends React.Component {
     }
   }
   componentWillMount() {
-    console.log(window.location.href.split('/'))
     let href = window.location.href.split('/')
     href = href[href.length - 1]
-    console.log(typeof href)
     let keyarr = [],
       key 
     switch (href) {
@@ -44,8 +44,6 @@ class OneLayout extends React.Component {
     })
   }
   render() {
-    // var  pathname = this.props.location.pathname || '/home'
-    // pathname = pathname.split('/')
     return (
       <Layout>
         <Layout>
@@ -81,17 +79,12 @@ class OneLayout extends React.Component {
           </Sider>
           <Layout style={{ padding: '0 24px 24px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              {/* {
-                pathname.map((name, index) => {
-                  return (
-                    <Breadcrumb.Item key={index}>{name}</Breadcrumb.Item>
-                  )
-                })
-              } */}
+            <Breadcrumb.Item >{this.props.location.pathname.substr(1)}</Breadcrumb.Item>
             </Breadcrumb>
             <Content style={{ background: '#fff', padding: 24, margin: 0 }}>
               <Route path="/one/" component={home} exact />
               <Route path="/one/home" component={home} />
+              <Route path="/one/onestory" component={onestory} />
               <Route path="/one/movie" component={movie} />
               <Route path="/one/book" component={book} />
               <Route path="/one/music" component={music} />
@@ -102,4 +95,5 @@ class OneLayout extends React.Component {
     )
   }
 }
-export default OneLayout
+
+export default withRouter(OneLayout)

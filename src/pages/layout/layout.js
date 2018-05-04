@@ -8,8 +8,9 @@ const { SubMenu } = Menu;
 const { Content, Sider } = Layout;
 class Layouts extends React.Component {
   render() {
-    // var  pathname = this.props.location.pathname || '/home'
-    // pathname = pathname.split('/')
+    var  pathname = this.props.location.pathname || '/home'
+    pathname = pathname.split('/')
+    console.log(pathname)
     return (
       <Layout>
         <Layout>

@@ -1,6 +1,6 @@
 import React from 'react'
 import api from './api/music'
-import BreadcrumbComponent from '@/component/Breadcrumb/index'
+// import BreadcrumbComponent from '@/component/Breadcrumb/index'
 import { Card } from 'antd'
 const { Meta } = Card
 class One_Music extends React.Component {
@@ -23,7 +23,7 @@ class One_Music extends React.Component {
   render() {
     return (
       <div>
-        <BreadcrumbComponent BreadcrumbList={['音乐']}></BreadcrumbComponent>
+        {/* <BreadcrumbComponent BreadcrumbList={['音乐']}></BreadcrumbComponent> */}
         <div className="music-list">
           {
             this.state.musicList.map((item, index) => {
