@@ -1,14 +1,48 @@
 import React from 'react'
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Breadcrumb, Icon } from 'antd' 
 import { Route, Link } from 'react-router-dom'
-
 import book from './book'
 import home from './home'
 import movie from './movie'
 import music from './music'
-const { SubMenu } = Menu;
-const { Content, Sider } = Layout;
+const { SubMenu } = Menu 
+const { Content, Sider } = Layout 
 class OneLayout extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      SelectedKeys: ['1']
+    }
+  }
+  componentWillMount() {
+    console.log(window.location.href.split('/'))
+    let href = window.location.href.split('/')
+    href = href[href.length - 1]
+    console.log(typeof href)
+    let keyarr = [],
+      key 
+    switch (href) {
+      case 'home':
+        key = '1'
+        break 
+      case 'movie':
+        key = '2'
+        break 
+      case 'music':
+        key = '4'
+        break 
+      case 'book':
+        key = '3'
+        break 
+
+      default: key = '1'
+        break 
+    }
+    keyarr.push(key)
+    this.setState({
+      SelectedKeys: keyarr
+    })
+  }
   render() {
     // var  pathname = this.props.location.pathname || '/home'
     // pathname = pathname.split('/')
@@ -21,7 +55,7 @@ class OneLayout extends React.Component {
           >
             <Menu
               mode="inline"
-              defaultSelectedKeys={['1']}
+              defaultSelectedKeys={this.state.SelectedKeys}
               defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}
             >

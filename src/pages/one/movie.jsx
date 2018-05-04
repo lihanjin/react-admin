@@ -28,16 +28,16 @@ class One_Movie extends React.Component {
       loadingMore: true,
     });
     api.getHistory(this.state.movieList[9].id)
-    .then(res => {
-      console.log(res)
-      const data = this.state.movieList.concat(res.data)
-      this.setState({
-        movieList: data,
-        loadingMore: false
-      }, () => {
-        window.dispatchEvent(new Event('resize'));
+      .then(res => {
+        console.log(res)
+        const data = this.state.movieList.concat(res.data)
+        this.setState({
+          movieList: data,
+          loadingMore: false
+        }, () => {
+          window.dispatchEvent(new Event('resize'));
+        })
       })
-    })
   }
   componentDidMount() {
 
@@ -52,7 +52,7 @@ class One_Movie extends React.Component {
     ) : null;
     return (
       <div>
-         <BreadcrumbComponent BreadcrumbList={['影视']}></BreadcrumbComponent>
+        <BreadcrumbComponent BreadcrumbList={['影视']}></BreadcrumbComponent>
         <div className="movie-box">
           <List
             className="demo-loadmore-list"
