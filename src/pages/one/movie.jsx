@@ -1,6 +1,7 @@
 import React from 'react'
 import api from './api/movie'
 import { List, Avatar, Button, Spin } from 'antd'
+import { Link } from 'react-router-dom'
 // import BreadcrumbComponent from '@/component/Breadcrumb/index'
 class One_Movie extends React.Component {
   constructor(props) {
@@ -61,7 +62,8 @@ class One_Movie extends React.Component {
             loadMore={loadMore}
             dataSource={movieList}
             renderItem={item => (
-              <List.Item actions={[<a>edit</a>, <a>more</a>]}>
+
+              <List.Item actions={[<Link to={`/one/movie/movieDetail?item_id=${item.item_id}`}>edit</Link>, <Link to={`/one/movie/movieDetail?item_id=${item.item_id}`}>more</Link>]}>
                 <List.Item.Meta
                   avatar={<Avatar src={item.img_url} />}
                   title={item.subtitle}
@@ -69,6 +71,7 @@ class One_Movie extends React.Component {
                 />
                 <div>{item.forward}</div>
               </List.Item>
+
             )}
           />
         </div>

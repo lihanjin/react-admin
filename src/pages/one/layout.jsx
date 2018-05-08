@@ -6,6 +6,7 @@ import book from './book'
 import home from './home'
 import movie from './movie'
 import onestory from './onestory'
+import movieDetail from './movieDetail'
 import music from './music'
 const { SubMenu } = Menu 
 const { Content, Sider } = Layout 
@@ -85,7 +86,8 @@ class OneLayout extends React.Component {
               <Route path="/one/" component={home} exact />
               <Route path="/one/home" component={home} />
               <Route path="/one/onestory" component={onestory} />
-              <Route path="/one/movie" component={movie} />
+              <Route path="/one/movie/movieDetail" component={movieDetail} />
+              <Route path="/one/movie" component={movie} exact/>
               <Route path="/one/book" component={book} />
               <Route path="/one/music" component={music} />
             </Content>
